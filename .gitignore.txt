@@ -1,0 +1,20 @@
+# Ignore uploads folder (contains user uploaded files)
+uploads/
+
+# Ignore system files
+.htaccess
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.qodo/
+*.sublime-workspace
+
+# Ignore log files
+*.log
+debug.log
+
+# Ignore composer
+composer.lock
+vendor/

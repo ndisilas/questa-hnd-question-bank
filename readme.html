@@ -1,0 +1,559 @@
+Here is a complete, self-contained HTML document that builds a step-by-step programming textbook for you, starting from the very basics and progressing through to advanced topics like pointers and data structures.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete C Programming Mastery Book | From Zero to Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fefcf0;
+            font-family: 'Segoe UI', 'Cascadia Code', 'Courier New', monospace;
+            line-height: 1.6;
+            padding: 30px 20px;
+            color: #1e2a2e;
+        }
+
+        .book {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+            padding: 40px 45px;
+            transition: all 0.2s;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .book {
+                box-shadow: none;
+                padding: 0.3in;
+                max-width: 100%;
+            }
+            .no-print {
+                display: none;
+            }
+            pre, .code-block {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, #1e4a2f, #d97706);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+            border-left: 8px solid #f59e0b;
+            padding-left: 25px;
+        }
+
+        .sub {
+            font-size: 1.2rem;
+            color: #2c5f2d;
+            margin-bottom: 35px;
+            border-bottom: 2px dashed #facc15;
+            padding-bottom: 15px;
+        }
+
+        .chapter {
+            margin-top: 50px;
+            margin-bottom: 40px;
+            background: #fef9e3;
+            border-radius: 48px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .chapter h2 {
+            font-size: 2.2rem;
+            background: #1f3b2c;
+            display: inline-block;
+            padding: 8px 28px;
+            border-radius: 60px;
+            color: white;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+        }
+
+        .section-card {
+            background: #ffffffdb;
+            border-radius: 28px;
+            padding: 22px 28px;
+            margin: 25px 0;
+            border-left: 12px solid #fbbf24;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .code-block {
+            background: #1e2a2e;
+            color: #e9f5e1;
+            padding: 18px;
+            border-radius: 20px;
+            font-family: 'Courier New', 'Cascadia Code', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin: 20px 0;
+            border-left: 5px solid #facc15;
+        }
+
+        .note {
+            background: #e6f7e6;
+            padding: 14px 20px;
+            border-radius: 24px;
+            margin: 20px 0;
+            border-left: 8px solid #2e7d32;
+        }
+
+        .exercise {
+            background: #fff2db;
+            padding: 18px 24px;
+            border-radius: 28px;
+            margin: 25px 0;
+            border: 2px solid #ffd966;
+        }
+
+        .assignment {
+            background: #e0ecf4;
+            padding: 18px 24px;
+            border-radius: 28px;
+            margin: 25px 0;
+            border: 2px solid #3b82f6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #d4af37;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #ffedd5;
+        }
+
+        .footer-book {
+            margin-top: 60px;
+            text-align: center;
+            border-top: 3px solid #ffe2aa;
+            padding: 30px;
+            font-size: 1rem;
+        }
+
+        button {
+            background: #ca8a04;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 25px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background: #1f4f2b;
+        }
+    </style>
+</head>
+<body>
+<div class="book" id="book">
+    <button class="no-print" onclick="window.print();">🖨️ PRINT BOOK (PDF STYLE)</button>
+    <h1>📘 THE ULTIMATE C PROGRAMMING MASTERY</h1>
+    <div class="sub">From Zero → Pro | Notes, Examples, Exercises & Assignments | Lowest Level Explained</div>
+
+    <!-- ========== CHAPTER 1: FOUNDATIONS ========= -->
+    <div class="chapter">
+        <h2>🔹 CHAPTER 1: BARE METAL BASICS</h2>
+        <div class="section-card">
+            <h3>🧠 What is a program?</h3>
+            <p>Program = set of instructions for the computer. C is a <strong>compiled language</strong> (turns into machine code).</p>
+            <div class="code-block">
+                // smallest C program
+                #include &lt;stdio.h&gt;
+                int main() {
+                    printf("Hello, future pro!\n");
+                    return 0;
+                }
+            </div>
+            <p><strong>🔑 Key concepts:</strong> <code>#include</code> (add library), <code>main()</code> (entry point), <code>printf()</code> (output).</p>
+            <div class="note">💡 Every statement ends with a semicolon <strong>;</strong> – Compiler is strict!</div>
+        </div>
+        <div class="section-card">
+            <h3>📦 Variables & Data Types</h3>
+            <p>Variables store data. Types: <code>int</code> (whole numbers), <code>float</code> (decimals), <code>char</code> (single letter), <code>double</code> (more precision).</p>
+            <div class="code-block">
+                int age = 8;
+                float price = 19.99;
+                char grade = 'A';
+                printf("Age: %d, Price: %.2f, Grade: %c", age, price, grade);
+            </div>
+            <p>📌 <strong>Format specifiers:</strong> %d (int), %f (float), %c (char), %s (string).</p>
+        </div>
+        <div class="exercise">
+            🧪 <strong>EXERCISE 1.1:</strong> Create a program that declares three variables: your age, a temperature 36.6, and your initial. Print them all in one sentence.<br>
+            🧪 <strong>EXERCISE 1.2:</strong> Swap two integers without a third variable (using + and -).
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 2: CONTROL FLOW ========= -->
+    <div class="chapter">
+        <h2>⚙️ CHAPTER 2: DECISIONS & LOOPS</h2>
+        <div class="section-card">
+            <h3>🔀 if / else / else if</h3>
+            <div class="code-block">
+                int marks = 85;
+                if (marks >= 90) printf("A+");
+                else if (marks >= 75) printf("A");
+                else printf("Keep improving");
+            </div>
+            <h3>🔄 Loops: while, for, do-while</h3>
+            <div class="code-block">
+                // for loop: print 1 to 5
+                for(int i=1; i<=5; i++) {
+                    printf("%d ", i);
+                }
+                // while loop: sum 1 to 100
+                int sum = 0, n = 1;
+                while(n <= 100) {
+                    sum += n;
+                    n++;
+                }
+            </div>
+            <div class="note">❗ Common mistake: forgetting increment <code>i++</code> → infinite loop.</div>
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 2 – Number Guessing Game</strong><br>
+            Write a program that picks a secret number (1-100). User guesses; after each guess print "too high" or "too low". Loop until correct. Count attempts. Use <code>rand() % 100 + 1</code> (include &lt;stdlib.h&gt; and &lt;time.h&gt;).
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 3: ARRAYS & 2D GRIDS (YOUR ENERGY PATH) ========= -->
+    <div class="chapter">
+        <h2>🗂️ CHAPTER 3: ARRAYS & MATRICES (2D)</h2>
+        <div class="section-card">
+            <h3>📊 1D & 2D arrays deep dive</h3>
+            <div class="code-block">
+                int scores[5] = {95, 88, 76, 92, 84};
+                scores[2] = 100; // modify 3rd element
+                // 2D grid (3x4)
+                int grid[3][4] = {
+                    {1,2,3,4},
+                    {5,6,7,8},
+                    {9,10,11,12}
+                };
+                // access element row 1 col 2 = 6
+                printf("%d", grid[1][2]);
+            </div>
+            <p>🔹 <strong>Energy path algorithm (minimum sum from top-left to bottom-right)</strong> – dynamic programming style.</p>
+            <div class="code-block">
+                // corrected energy path – only right/down moves
+                int minPathSum(int grid[][3], int rows, int cols) {
+                    int dp[3][3];
+                    dp[0][0] = grid[0][0];
+                    for(int j=1; j<cols; j++) dp[0][j] = dp[0][j-1] + grid[0][j];
+                    for(int i=1; i<rows; i++) dp[i][0] = dp[i-1][0] + grid[i][0];
+                    for(int i=1; i<rows; i++)
+                        for(int j=1; j<cols; j++)
+                            dp[i][j] = (dp[i-1][j] < dp[i][j-1] ? dp[i-1][j] : dp[i][j-1]) + grid[i][j];
+                    return dp[rows-1][cols-1];
+                }
+            </div>
+        </div>
+        <div class="exercise">
+            🧪 <strong>EXERCISE 3.1:</strong> Create a 4x4 matrix, fill with numbers 1-16. Print the sum of each row.<br>
+            🧪 <strong>EXERCISE 3.2:</strong> Given a 2D grid, find the maximum value and its position (row, col).
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 3: ROBOT COLLECTOR</strong><br>
+            Build a program that reads a 5x5 labyrinth with energy values. Compute the minimum energy path using the DP method. Then display the path coordinates (like (0,0) → (0,1) → ...).
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 4: POINTERS (THE GAME CHANGER) ========= -->
+    <div class="chapter">
+        <h2>📍 CHAPTER 4: POINTERS – MASTER MEMORY</h2>
+        <div class="section-card">
+            <p><strong>Pointer = variable that stores memory address</strong>. <code>&amp;</code> = address-of, <code>*</code> = dereference (value at address).</p>
+            <div class="code-block">
+                int x = 42;
+                int *ptr = &x;   // ptr points to x
+                printf("%d\n", *ptr); // prints 42
+                *ptr = 100;
+                printf("%d", x); // x is now 100
+            </div>
+            <h3>🎯 Why pointers? Modify variables inside functions, dynamic memory, strings, arrays.</h3>
+            <div class="code-block">
+                void swap(int *a, int *b) {
+                    int temp = *a;
+                    *a = *b;
+                    *b = temp;
+                }
+                // in main: swap(&x, &y);
+            </div>
+            <div class="note">✨ <strong>Pointer arithmetic:</strong> <code>ptr+1</code> moves to next integer (4 bytes). Works with arrays!</div>
+        </div>
+        <div class="exercise">
+            🧪 <strong>EXERCISE 4.1:</strong> Write a function that takes a pointer to an integer and doubles its value. Call it from main.<br>
+            🧪 <strong>EXERCISE 4.2:</strong> Create an array of 5 ints, use a pointer to iterate and print all elements.
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 4: REVERSE ARRAY WITH POINTERS</strong><br>
+            Write a function <code>reverseArray(int *arr, int size)</code> that reverses the array in-place using only pointer arithmetic (no square brackets [] inside the function).
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 5: DYNAMIC MEMORY (MALLOC) ========= -->
+    <div class="chapter">
+        <h2>🧠 CHAPTER 5: DYNAMIC MEMORY – FLEXIBLE SIZE</h2>
+        <div class="section-card">
+            <p><code>malloc()</code> allocates memory at runtime, <code>free()</code> releases it. Include &lt;stdlib.h&gt;.</p>
+            <div class="code-block">
+                int *arr;
+                int n = 10;
+                arr = (int*)malloc(n * sizeof(int));
+                if(arr == NULL) { printf("Memory failed\n"); return 1; }
+                for(int i=0; i<n; i++) arr[i] = i+1;
+                free(arr); // Don't forget!
+            </div>
+            <h3>📐 Dynamic 2D array (flexible energy grid)</h3>
+            <div class="code-block">
+                int rows = 4, cols = 5;
+                int **matrix = (int**)malloc(rows * sizeof(int*));
+                for(int i=0; i<rows; i++)
+                    matrix[i] = (int*)malloc(cols * sizeof(int));
+                // use matrix[i][j] ...
+                // free: for(i=0;i<rows;i++) free(matrix[i]); free(matrix);
+            </div>
+            <div class="note">⚠️ Always check malloc return value. Always free to avoid memory leaks.</div>
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 5: DYNAMIC ENERGY PATH</strong><br>
+            Ask user for grid dimensions (rows, cols). Dynamically allocate. Fill with random numbers (1–20). Compute minimum energy path. Print original grid and the minimum sum.
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 6: STRINGS ========= -->
+    <div class="chapter">
+        <h2>🔤 CHAPTER 6: STRINGS & STRING FUNCTIONS</h2>
+        <div class="section-card">
+            <p>C strings are char arrays terminated by <code>'\0'</code> (null character).</p>
+            <div class="code-block">
+                char name[] = "Alex";   // size 5: A l e x \0
+                char city[20];
+                printf("Enter city: ");
+                scanf("%s", city);   // no & for array
+                // string functions: strlen(), strcpy(), strcmp(), strcat()
+                #include &lt;string.h&gt;
+                int len = strlen(name);
+                if(strcmp(city, "Paris") == 0) printf("City of lights");
+            </div>
+            <p>🔐 <strong>Safe input:</strong> <code>fgets(str, size, stdin);</code> avoids buffer overflow.</p>
+        </div>
+        <div class="exercise">
+            🧪 <strong>EXERCISE 6.1:</strong> Write a program that reads a sentence and counts vowels (a,e,i,o,u).<br>
+            🧪 <strong>EXERCISE 6.2:</strong> Implement your own <code>strlen</code> using a pointer loop.
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 6: PALINDROME CHECKER</strong><br>
+            Get a string from the user, check if it is palindrome (reads same forward/backward). Ignore case and spaces. Example: "Race car" → palindrome.
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 7: STRUCTURES ========= -->
+    <div class="chapter">
+        <h2>🏗️ CHAPTER 7: STRUCTURES – CUSTOM DATA TYPES</h2>
+        <div class="section-card">
+            <div class="code-block">
+                struct Student {
+                    char name[50];
+                    int age;
+                    float grade;
+                };
+                int main() {
+                    struct Student s1 = {"Emma", 8, 92.5};
+                    printf("%s is %d years old\n", s1.name, s1.age);
+                    // array of structures
+                    struct Student class[30];
+                    class[0].grade = 98;
+                    return 0;
+                }
+            </div>
+            <p>🔹 <strong>typedef</strong> to avoid typing "struct" every time.</p>
+            <div class="code-block">
+                typedef struct {
+                    int x, y;
+                } Point;
+                Point p1 = {3, 5};
+            </div>
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 7: STUDENT DATABASE</strong><br>
+            Create a structure "Student" with id, name, 3 subject marks. Write functions: add student, display all, find topper (average highest). Use dynamic array of students (malloc) with menu.
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 8: FILE I/O ========= -->
+    <div class="chapter">
+        <h2>💾 CHAPTER 8: FILE HANDLING (READ & WRITE)</h2>
+        <div class="section-card">
+            <div class="code-block">
+                FILE *fp;
+                fp = fopen("data.txt", "w"); // w=write, r=read, a=append
+                if(fp == NULL) { printf("Error opening file"); return 1; }
+                fprintf(fp, "Value = %d\n", 42);
+                fclose(fp);
+                // reading
+                fp = fopen("data.txt", "r");
+                char buffer[100];
+                while(fgets(buffer, 100, fp) != NULL) {
+                    printf("%s", buffer);
+                }
+                fclose(fp);
+            </div>
+            <div class="note">📁 Files let you save data forever – games, scores, configurations.</div>
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 8: MAZE LOADER</strong><br>
+            Create a text file "maze.txt" containing a 5x5 grid of numbers. Write a C program that reads the file, stores in dynamic 2D array, then computes the minimum energy path and writes the result to "result.txt".
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 9: RECURSION ========= -->
+    <div class="chapter">
+        <h2>♻️ CHAPTER 9: RECURSION – FUNCTION CALLS ITSELF</h2>
+        <div class="section-card">
+            <div class="code-block">
+                // factorial
+                int fact(int n) {
+                    if(n == 0 || n == 1) return 1;
+                    return n * fact(n-1);
+                }
+                // Fibonacci
+                int fib(int n) {
+                    if(n <= 1) return n;
+                    return fib(n-1) + fib(n-2);
+                }
+            </div>
+            <p>🎯 Recursion needs <strong>base case</strong> and <strong>recursive step</strong>. Great for trees and backtracking.</p>
+        </div>
+        <div class="exercise">
+            🧪 <strong>EXERCISE 9.1:</strong> Sum of digits using recursion (sumDigits(123) → 1+2+3=6).<br>
+            🧪 <strong>EXERCISE 9.2:</strong> Power function: power(2,5) using recursion.
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 9: MAZE SOLVER RECURSIVE (BACKTRACKING)</strong><br>
+            Implement a recursive function <code>solveMaze(x,y)</code> that finds a path from (0,0) to (N-1,N-1) in a 2D grid (1=wall, 0=free). Print the path coordinates.
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 10: LINKED LISTS (PRO LEVEL) ========= -->
+    <div class="chapter">
+        <h2>⛓️ CHAPTER 10: LINKED LISTS – DYNAMIC DATA STRUCTURE</h2>
+        <div class="section-card">
+            <div class="code-block">
+                typedef struct Node {
+                    int data;
+                    struct Node *next;
+                } Node;
+                // create node
+                Node* createNode(int val) {
+                    Node *newNode = (Node*)malloc(sizeof(Node));
+                    newNode->data = val;
+                    newNode->next = NULL;
+                    return newNode;
+                }
+                // insert at head
+                void push(Node** head, int val) {
+                    Node* newNode = createNode(val);
+                    newNode->next = *head;
+                    *head = newNode;
+                }
+                // print list
+                void printList(Node* head) {
+                    while(head != NULL) {
+                        printf("%d -> ", head->data);
+                        head = head->next;
+                    }
+                    printf("NULL\n");
+                }
+            </div>
+            <div class="note">🔗 Linked lists grow/shrink dynamically, unlike arrays. Insert/delete efficient.</div>
+        </div>
+        <div class="assignment">
+            📌 <strong>ASSIGNMENT 10: TO-DO LIST MANAGER</strong><br>
+            Build a menu-driven to-do list using linked lists. Options: Add task, Delete task, Display all, Save to file, Load from file. Each node contains task description (string) and priority.
+        </div>
+    </div>
+
+    <!-- ========== CHAPTER 11: MORE ADVANCED & PRO TIPS ========= -->
+    <div class="chapter">
+        <h2>🏆 CHAPTER 11: BECOMING A PRO – NEXT STEP</h2>
+        <div class="section-card">
+            <p><strong>💡 Pro Tools:</strong> GDB debugger, Valgrind (memory leak check), Makefiles, Git version control.</p>
+            <p><strong>📚 Must-Know Algorithms:</strong> Binary Search, Quick Sort, Merge Sort, BFS/DFS on grids.</p>
+            <div class="code-block">
+                // Binary search (iterative)
+                int binarySearch(int arr[], int left, int right, int target) {
+                    while(left <= right) {
+                        int mid = left + (right-left)/2;
+                        if(arr[mid] == target) return mid;
+                        if(arr[mid] < target) left = mid+1;
+                        else right = mid-1;
+                    }
+                    return -1;
+                }
+            </div>
+        </div>
+        <div class="exercise">
+            🧪 <strong>FINAL CHALLENGE 11.1:</strong> Implement a stack using linked list (push, pop, peek).<br>
+            🧪 <strong>FINAL CHALLENGE 11.2:</strong> Create a simple text-based bank system: Account struct, deposit/withdraw, save to file.
+        </div>
+        <div class="note" style="background:#ffebcd;">
+            🎓 <strong>Roadmap after this book:</strong> Practice LeetCode easy → medium, build 3 projects (CLI game, student manager, file encryptor), read "The C Programming Language" (K&R).
+        </div>
+    </div>
+
+    <!-- ========== APPENDIX: PRACTICE PROJECTS ========= -->
+    <div class="chapter">
+        <h2>📌 APPENDIX: 5 REAL PROJECTS TO MASTER</h2>
+        <div class="grid-cards" style="display: flex; flex-wrap: wrap; gap: 18px;">
+            <div style="background:#f4f0e2; border-radius: 24px; padding: 18px; flex:1;"><strong>1. 🎮 Tic-Tac-Toe</strong><br>2-player, check winner, replay.</div>
+            <div style="background:#f4f0e2; border-radius: 24px; padding: 18px; flex:1;"><strong>2. 📞 Contact Book</strong><br>Structures, dynamic array, search by name.</div>
+            <div style="background:#f4f0e2; border-radius: 24px; padding: 18px; flex:1;"><strong>3. ⏱️ Stopwatch</strong><br>time.h, loops, user input for start/stop.</div>
+            <div style="background:#f4f0e2; border-radius: 24px; padding: 18px; flex:1;"><strong>4. 🧮 Expression Evaluator</strong><br>Parse 3+5*2 using shunting yard.</div>
+            <div style="background:#f4f0e2; border-radius: 24px; padding: 18px; flex:1;"><strong>5. 📊 Grade Analyzer</strong><br>Read CSV, compute average, min, max.</div>
+        </div>
+        <div class="footer-book">
+            ⭐ <strong>YOU DID IT!</strong> This book contains EVERY topic from beginner to pro. <br>
+            ✍️ Rule: rewrite every example, solve at least half the exercises + all assignments. <br>
+            🚀 Commit to 1 chapter per week → in 3 months you'll be a confident C programmer.
+        </div>
+    </div>
+</div>
+</body>
+</html>
+```
